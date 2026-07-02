@@ -1,8 +1,8 @@
-# Importador de Sessão do WhatsApp Web
+# Leona - Importador de Sessão do WhatsApp Web
 
-Extensão para migrar uma sessão já conectada no WhatsApp Web para a API.
+Extensão para migrar uma sessão já conectada no WhatsApp Web para a sua instância Leona.
 
-Esta extensão funciona apenas para instâncias Uazapi.
+Esta extensão funciona apenas para instâncias Leona.
 
 ## Versão
 
@@ -10,7 +10,7 @@ Esta extensão funciona apenas para instâncias Uazapi.
 
 - Versão inicial da extensão.
 - Instalação manual pelo Chrome ou Edge.
-- Migração de sessão conectada no WhatsApp Web para a instância Uazapi.
+- Migração de sessão conectada no WhatsApp Web para a instância Leona.
 - Abertura automática do painel quando o link enviado pela equipe de suporte contém os parâmetros necessários.
 
 ## 1. Instalar a extensão

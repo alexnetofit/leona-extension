@@ -369,16 +369,6 @@
     `;
   }
 
-  function iconImport() {
-    return `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 4v10" />
-        <path d="m8 10 4 4 4-4" />
-        <path d="M6 18h12" />
-      </svg>
-    `;
-  }
-
   function panelTemplate() {
     const version = extensionVersion();
     return `
@@ -394,12 +384,12 @@
           --connector-muted: rgba(0, 0, 0, 0.6);
           --connector-line: rgba(0, 0, 0, 0.1);
           --connector-panel-border: rgba(0, 0, 0, 0.1);
-          --connector-accent: #1daa61;
-          --connector-accent-hover: #1b8755;
+          --connector-accent: #945ff7;
+          --connector-accent-hover: #7c3aed;
           --connector-accent-text: #ffffff;
           --connector-hover: rgba(194, 189, 184, 0.15);
           --connector-notice: #f7f5f3;
-          --connector-focus: rgba(29, 170, 97, 0.3);
+          --connector-focus: rgba(148, 95, 247, 0.3);
           --connector-danger: #ea0038;
           --connector-danger-soft: #fde8eb;
           --connector-ok: #1b8755;
@@ -407,8 +397,8 @@
           --connector-warn: #a5691b;
           --connector-warn-soft: #fff7e5;
           --connector-warn-border: rgba(197, 135, 48, 0.35);
-          --connector-shadow: 0 16px 44px rgba(11, 20, 26, 0.22), 0 0 22px rgba(29, 170, 97, 0.18);
-          --connector-primary-shadow: rgba(29, 170, 97, 0.2);
+          --connector-shadow: 0 16px 44px rgba(11, 20, 26, 0.22), 0 0 22px rgba(148, 95, 247, 0.18);
+          --connector-primary-shadow: rgba(148, 95, 247, 0.2);
           --connector-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
           display: block;
           font-family: var(--connector-font);
@@ -428,12 +418,12 @@
           --connector-text: #fafafa;
           --connector-muted: rgba(255, 255, 255, 0.6);
           --connector-line: rgba(255, 255, 255, 0.1);
-          --connector-accent: #21c063;
-          --connector-accent-hover: #1daa61;
+          --connector-accent: #a689fb;
+          --connector-accent-hover: #945ff7;
           --connector-accent-text: #0a0a0a;
           --connector-hover: rgba(255, 255, 255, 0.1);
           --connector-notice: #161717;
-          --connector-focus: rgba(33, 192, 99, 0.3);
+          --connector-focus: rgba(166, 137, 251, 0.3);
           --connector-danger: #fb5061;
           --connector-danger-soft: #321622;
           --connector-ok: #71eb85;
@@ -441,9 +431,9 @@
           --connector-warn: #ffd279;
           --connector-warn-soft: #362c1f;
           --connector-warn-border: rgba(255, 210, 121, 0.32);
-          --connector-panel-border: rgba(33, 192, 99, 0.28);
-          --connector-shadow: 0 18px 46px rgba(0, 0, 0, 0.6), 0 0 30px rgba(33, 192, 99, 0.28);
-          --connector-primary-shadow: rgba(33, 192, 99, 0.24);
+          --connector-panel-border: rgba(166, 137, 251, 0.28);
+          --connector-shadow: 0 18px 46px rgba(0, 0, 0, 0.6), 0 0 30px rgba(166, 137, 251, 0.28);
+          --connector-primary-shadow: rgba(166, 137, 251, 0.24);
         }
 
         * {
@@ -465,6 +455,20 @@
           overflow: hidden;
           pointer-events: auto;
           width: min(368px, calc(100vw - 32px));
+        }
+
+        .leona-header {
+          align-items: center;
+          background: #0b0b12;
+          display: flex;
+          justify-content: center;
+          padding: 10px 16px;
+        }
+
+        .leona-header img {
+          display: block;
+          height: 18px;
+          width: auto;
         }
 
         .topbar {
@@ -499,17 +503,14 @@
           line-height: 1;
           height: 36px;
           justify-content: center;
+          padding: 6px;
           width: 36px;
         }
 
-        .mark svg {
-          fill: none;
-          height: 21px;
-          stroke: currentColor;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-width: 2.2;
-          width: 21px;
+        .mark img {
+          height: 100%;
+          object-fit: contain;
+          width: 100%;
         }
 
         .title {
@@ -853,9 +854,14 @@
       </style>
 
       <section class="panel" role="dialog" aria-label="Migrar sessão">
+        <div class="leona-header">
+          <img src="${chrome.runtime.getURL("icons/leona-logo.png")}" alt="Leona" />
+        </div>
         <header class="topbar">
           <div id="devModeToggleArea" class="brand" title="Modo técnico">
-            <span class="mark" aria-hidden="true">${iconImport()}</span>
+            <span class="mark" aria-hidden="true">
+              <img src="${chrome.runtime.getURL("icons/leona-mark.png")}" alt="" />
+            </span>
             <span>
               <span class="title">Migrar sessão</span>
               <span id="statusLabel" class="subtitle">WhatsApp Web conectado</span>
