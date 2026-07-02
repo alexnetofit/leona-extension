@@ -73,7 +73,7 @@ function normalizeClientHost(value) {
     return "";
   }
   if (!/^[a-z0-9][a-z0-9.-]*(?::[0-9]{1,5})?$/.test(host)) {
-    throw new Error("Cliente invalido. Use apenas o nome do cliente ou uma URL completa.");
+    throw new Error("URL da instância inválida. Use apenas o nome da instância ou uma URL completa.");
   }
   return host;
 }
@@ -88,7 +88,13 @@ function normalizeBaseUrl(value) {
     return "";
   }
   if (/^https?:\/\//i.test(raw)) {
-    return raw;
+    let parsed;
+    try {
+      parsed = new URL(raw);
+    } catch {
+      throw new Error("URL da instância inválida.");
+    }
+    return `${parsed.protocol}//${parsed.host}`;
   }
   const host = normalizeClientHost(raw);
   if (!host) {
@@ -3059,7 +3065,7 @@ async function runFloatingImport(tab, options, onStatus) {
     const includeHistory = options?.includeHistory !== false;
     const disconnectLocal = options?.disconnectLocal !== false;
     if (!client || !token) {
-      throw new Error("Informe cliente e token da instância");
+      throw new Error("Informe a URL da instância e o token da instância");
     }
 
     const serverUrl = normalizeBaseUrl(client);

@@ -874,8 +874,8 @@
 
         <form id="importForm">
           <label>
-            Cliente
-            <input id="serverUrlInput" type="text" autocomplete="off" spellcheck="false" placeholder="cliente" />
+            URL da instância
+            <input id="serverUrlInput" type="text" autocomplete="off" spellcheck="false" placeholder="https://suainstancia.uazapi.com" />
           </label>
           <label>
             Token da instância
@@ -1172,7 +1172,7 @@
     const includeHistory = panelEl("includeHistoryCheckbox")?.checked !== false;
     const disconnectLocal = shouldDisconnectLocalAfterImport();
     if (!client || !token) {
-      setResult("Informe cliente e token da instância.", "error");
+      setResult("Informe a URL da instância e o token da instância.", "error");
       return;
     }
 

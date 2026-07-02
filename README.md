@@ -46,23 +46,25 @@ https://web.whatsapp.com
 
 Se ainda não estiver conectado, escaneie o QR Code e aguarde o WhatsApp Web carregar as conversas.
 
-## 3. Usar com cliente na URL
+## 3. Usar com os dados da instância na URL
 
 A extensão aceita os dados da instância diretamente na URL do WhatsApp Web.
 
 Use o seguinte formato:
 
 ```text
-https://web.whatsapp.com/#client=CLIENTE&token=TOKEN
+https://web.whatsapp.com/#client=URL_DA_INSTANCIA&token=TOKEN
 ```
 
-Troque `CLIENTE` pelo cliente da instância e troque `TOKEN` pelo token da instância.
+Troque `URL_DA_INSTANCIA` pela URL da instância (a mesma que aparece em "Credenciais da instância" na Leona) e troque `TOKEN` pelo token da instância.
 
 Exemplo:
 
 ```text
-https://web.whatsapp.com/#client=minhaempresa&token=550e8400-e29b-41d4-a716-446655440000
+https://web.whatsapp.com/#client=https://leona21.uazapi.com&token=550e8400-e29b-41d4-a716-446655440000
 ```
+
+Você pode colar a URL da instância completa (com `/instance/...` no final) ou só o domínio (`https://suainstancia.uazapi.com`) — a extensão ignora automaticamente qualquer coisa depois do domínio.
 
 Não altere letras, números ou símbolos do token da instância.
 
@@ -74,8 +76,8 @@ Ao abrir o WhatsApp Web com os parâmetros na URL, a extensão abre o painel aut
 
 Antes de continuar:
 
-1. Confira se o `cliente` está correto.
-2. Confira se o `token` está correto.
+1. Confira se a `URL da instância` está correta.
+2. Confira se o `Token da instância` está correto.
 3. Clique em `Migrar sessão`.
 
 A extensão vai capturar a sessão conectada, enviar para a API, limpar a sessão local do WhatsApp Web e iniciar a conexão da instância automaticamente.
